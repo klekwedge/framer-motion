@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
 
-const Button = (props) => {
-  const { text, handleClick = Function.prototype, isSelected } = props;
+interface ButtonProps {
+  text: string;
+  handleClick: () => void;
+  isSelected: boolean;
+}
+
+const Button = (props: ButtonProps) => {
+  const { text, handleClick, isSelected } = props;
 
   return (
     <motion.button
@@ -12,8 +18,10 @@ const Button = (props) => {
       onClick={handleClick}
     >
       {isSelected && <BgSelector />}
-      <motion.span animate={{ color: isSelected ? "#fff" : "#000" }}
-      style={{position: 'relative', }}>
+      <motion.span
+        animate={{ color: isSelected ? "#fff" : "#000" }}
+        style={{ position: "relative" }}
+      >
         {text}
       </motion.span>
     </motion.button>

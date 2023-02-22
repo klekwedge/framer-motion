@@ -1,8 +1,12 @@
-export const data = [
+export interface IData {
+  category: string;
+  title: string;
+}
+
+export const data: IData[] = [
   { category: "cars", title: "BMW" },
   { category: "cars", title: "Volvo" },
   { category: "cars", title: "Mustang" },
-  { category: "cars", title: "Audi" },
   { category: "colors", title: "Blue" },
   { category: "colors", title: "Orange" },
   { category: "colors", title: "Red" },

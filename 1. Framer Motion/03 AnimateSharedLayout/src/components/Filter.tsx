@@ -1,8 +1,13 @@
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { useState } from "react";
+import { IData } from "../data";
 import Button from "./Button";
 
-const Filter = ({ data }) => {
+interface FilterProps {
+  data: IData[];
+}
+
+const Filter = ({ data }: FilterProps) => {
   const [cards, setCards] = useState(data);
   const [selected, setSelected] = useState(0);
 
@@ -14,7 +19,7 @@ const Filter = ({ data }) => {
     ["all"]
   );
 
-  const handleFilter = (selector) => {
+  const handleFilter = (selector: string) => {
     if (selector === "all") return setCards(data);
     setCards(data.filter((el) => el.category === selector));
   };

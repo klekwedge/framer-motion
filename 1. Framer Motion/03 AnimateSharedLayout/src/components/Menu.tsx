@@ -29,8 +29,14 @@ const Menu = () => {
   );
 };
 
-const MenuItem = (props) => {
-  const { item, isSelected, handleClick = Function.prototype } = props;
+interface MenuItemProps {
+  item: string;
+  handleClick: () => void;
+  isSelected: boolean;
+}
+
+const MenuItem = (props: MenuItemProps) => {
+  const { item, isSelected, handleClick } = props;
 
   return (
     <motion.div
@@ -54,7 +60,7 @@ const ActiveLine = () => {
         height: "4px",
         position: "absolute",
         bottom: "-6px",
-        left: '5px',
+        left: "5px",
         background: "rgb(255, 0, 0)",
       }}
     ></motion.div>
