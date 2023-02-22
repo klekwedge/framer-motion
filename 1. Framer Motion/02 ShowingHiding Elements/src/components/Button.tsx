@@ -1,6 +1,12 @@
 import { motion } from "framer-motion";
 
-const Button = (props) => {
+
+interface ButtonProps {
+  text: string;
+  handleClick: () => void
+}
+
+const Button = (props:ButtonProps) => {
   const { text, handleClick = Function.prototype } = props;
 
   return (
@@ -8,7 +14,7 @@ const Button = (props) => {
       style={btnStyle}
       whileHover={{ background: "#ddd" }}
       whileTap={{ background: "#ccc" }}
-      onClick={handleClick}
+      onClick={() => handleClick()}
     >{text}</motion.button>
   );
 };

@@ -1,4 +1,9 @@
-export const data = [
+export interface IData {
+  category: string;
+  title: string;
+}
+
+export const data: IData[] = [
   { category: "cars", title: "BMW" },
   { category: "cars", title: "Volvo" },
   { category: "cars", title: "Mustang" },

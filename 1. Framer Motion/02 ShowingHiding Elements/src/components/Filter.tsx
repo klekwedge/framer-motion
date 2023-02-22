@@ -1,18 +1,43 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { IData } from "../data";
 import Button from "./Button";
 
-const Filter = ({ data }) => {
+interface FilterProps {
+  data: IData[];
+}
+
+const boxStyle = {
+  float: "left",
+  backgroundColor: "#2196F3",
+  color: "#ffffff",
+  width: "100px",
+  lineHeight: "100px",
+  textAlign: "center",
+  margin: "2px",
+};
+
+const Filter = ({ data }: FilterProps) => {
   const [cards, setCards] = useState(
     data.filter((el) => el.category === "cars")
   );
 
-  const buttons = data.reduce((acc, el) => {
-    if (acc.includes(el.category)) return acc;
-    return [...acc, el.category];
-  }, []);
+  function getCategories() {
+    const categories: string[] = [];
 
-  const handleFilter = (selector) => {
+    data.forEach((item) => {
+      if (categories.includes(item.category)) {
+        return categories;
+      }
+      return [...categories, item.category];
+    });
+
+    return categories;
+  }
+
+  const buttons: string[] = getCategories();
+
+  const handleFilter = (selector: string) => {
     setCards(data.filter((el) => el.category === selector));
   };
 
@@ -38,7 +63,6 @@ const Filter = ({ data }) => {
               exit={{ opacity: 0 }}
               transition={{ duration: 1 }}
             >
-              {console.log(el.title)}
               {el.title}
             </motion.div>
           ))}
@@ -46,16 +70,6 @@ const Filter = ({ data }) => {
       </div>
     </div>
   );
-};
-
-const boxStyle = {
-  float: "left",
-  backgroundColor: "#2196F3",
-  color: "#ffffff",
-  width: "100px",
-  lineHeight: "100px",
-  textAlign: "center",
-  margin: "2px",
 };
 
 export default Filter;
