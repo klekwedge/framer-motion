@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import logo from "./logo.svg";
+import logo from "/logo.svg";
 import "./App.css";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   };
 
   const listVariants = {
-    visible: (i) => ({
+    visible: (i: number) => ({
       opacity: 1,
       y: 0,
       transition: {
