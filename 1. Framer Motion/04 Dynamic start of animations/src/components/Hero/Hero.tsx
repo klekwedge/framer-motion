@@ -1,5 +1,5 @@
 import classes from "./Hero.module.scss";
-import { Button } from "../Button";
+import { Button } from "../Button/Button";
 import Img from "../../images/illustration-working.svg";
 
 const Hero = () => {
@@ -20,4 +20,4 @@ const Hero = () => {
   );
 };
 
-export { Hero };
+export default Hero;

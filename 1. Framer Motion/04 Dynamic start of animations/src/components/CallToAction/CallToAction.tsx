@@ -1,6 +1,6 @@
 import classes from './CallToAction.module.scss';
 
-import { Button } from '../Button'
+import { Button } from '../Button/Button';
 
 const CallToAction = () => {
   return (
@@ -11,4 +11,4 @@ const CallToAction = () => {
   )
 }
 
-export {CallToAction};
+export default CallToAction

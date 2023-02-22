@@ -1,10 +1,11 @@
-import {Button} from '../Button';
+import { Button } from '../Button/Button';
 import classes from './Shortens.module.scss';
 
 
 const Shortens = () => {
     const links = [];
 
+    console.log(links);
     if (!links?.length) return null;
 
     return (
@@ -29,4 +30,4 @@ const Shortens = () => {
     );
 };
 
-export {Shortens};
+export default Shortens;

@@ -1,4 +1,4 @@
-import {Button} from '../Button';
+import { Button } from '../Button/Button';
 
 import classes from './Form.module.scss';
 
@@ -26,4 +26,4 @@ const Form = () => {
   )
 }
 
-export {Form};
+export default Form;
